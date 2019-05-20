@@ -3,58 +3,15 @@
 
 #include <string>
 
-class Administrator {
+#include "User.h"
+
+class Administrator : public User {
 public:
-    Administrator() {};
+    Administrator() : User() {};  
 
-    int id() const { return mId; };
-
-    void setId(int id) { mId = id; };
-
-    std::string username() const { return mUsername; };
-
-    void setUsername(std::string username) { mUsername = username; };
-
-    std::string password() const { return mPassword; };
-
-    void setPassword(std::string password) { mPassword = password; };
-
-    std::string firstName() const { return mFirstName; };
-
-    void setFirstName(std::string firstName) { mFirstName = firstName; };
-
-    std::string lastName() const { return mLastName; };
-
-    void setLastName(std::string lastName) { mLastName = lastName; };
-
-    std::string eMail() const { return mEMail; };
-
-    void setEMail(std::string eMail) { mEMail = eMail; };
-
-    std::string messenger() const { return mMessenger; };
-
-    void setMessenger(std::string messenger) { mMessenger = messenger; };
-
-    std::string phoneNumber() const { return mMessenger; };
-
-    void setPhoneNumber(std::string phoneNumber) { mPhoneNumber = phoneNumber; };
-
-private:
-    int mId;
-
-    std::string mUsername;
-
-    std::string mPassword;
-
-    std::string mFirstName;
-
-    std::string mLastName;
-
-    std::string mEMail;
-
-    std::string mMessenger;
-
-    std::string mPhoneNumber;
+    Administrator(int id, std::string username, std::string password, std::string firstName, std::string lastName, std::string eMail, std::string messenger, std::string phoneNumber) 
+        : User(id, username, password, firstName, lastName, eMail, messenger, phoneNumber) 
+    {};
 };
 
 #endif //RESTAURANTSERVICE_ADMINISTRATOR_H

@@ -156,11 +156,10 @@
   <ItemGroup>
     <ClInclude Include="source\Administrator.h" />
     <ClInclude Include="source\Client.h" />
-    <ClInclude Include="source\HallPlan.h" />
-    <ClInclude Include="source\Menu.h" />
     <ClInclude Include="source\Order.h" />
     <ClInclude Include="source\Reservation.h" />
     <ClInclude Include="source\Table.h" />
+    <ClInclude Include="source\User.h" />
     <ClInclude Include="source\Worker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
