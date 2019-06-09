@@ -1,0 +1,8 @@
+package com.rservice.businesslogic.exceptions;
+
+public class NotFoundException extends Exception {
+
+    public NotFoundException(String message) {
+        super(message);
+    }
+}

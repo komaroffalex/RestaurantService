@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rservice.gui.controllers.MainClientViewController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="35.0" prefWidth="800.0">
+               <children>
+                  <ToolBar prefHeight="35.0" prefWidth="583.0">
+                     <items>
+                        <Label text="Client ID:" />
+                        <Label fx:id="currentClientIdLabel" alignment="CENTER" prefWidth="30.0" text="12" textAlignment="CENTER" />
+                        <Separator orientation="VERTICAL" prefHeight="25.0" />
+                        <Label fx:id="currentClientLoginLabel" alignment="CENTER" layoutX="78.0" layoutY="14.0" prefWidth="125.0" text="Login" textAlignment="CENTER" />
+                        <Separator layoutX="112.0" layoutY="10.0" orientation="VERTICAL" prefHeight="25.0" />
+                        <Label fx:id="currentClientNameLabel" alignment="CENTER" layoutX="122.0" layoutY="14.0" prefWidth="225.0" text="Name" textAlignment="CENTER" />
+                        <Separator layoutX="251.0" layoutY="10.0" orientation="VERTICAL" prefHeight="25.0" />
+                     </items>
+                  </ToolBar>
+                  <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="35.0" prefWidth="300.0">
+                    <items>
+                      <Button fx:id="logOutButton" mnemonicParsing="false" onMouseClicked="#onClickLogOutButton" text="Log Out" />
+                        <Separator orientation="VERTICAL" prefHeight="25.0" />
+                    </items>
+                  </ToolBar>
+               </children>
+            </HBox>
+            <HBox prefHeight="379.0" prefWidth="800.0">
+               <children>
+                  <AnchorPane prefHeight="381.0" prefWidth="800.0">
+                     <children>
+                        <TabPane prefHeight="405.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+                          <tabs>
+                              <Tab fx:id="exchangesTab" onSelectionChanged="#onClickRefreshButton" text="My Reservations">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="201.0" prefWidth="800.0">
+                                       <children>
+                                          <TableView fx:id="reservationsTable1View" prefHeight="380.0" prefWidth="800.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="t1IdTableColumn" prefWidth="110.0" text="ID" />
+                                                <TableColumn fx:id="t1ResTimeTableColumn" prefWidth="142.0" text="Res. time" />
+                                                <TableColumn fx:id="t1PersonsTableColumn" prefWidth="70.0" text="Persons" />
+                                                <TableColumn fx:id="t1TableLocationTableColumn" prefWidth="89.0" text="Table Loc." />
+                                                <TableColumn fx:id="t1CostTableColumn" prefWidth="87.0" text="Cost" />
+                                                <TableColumn fx:id="t1StatusTableColumn" prefWidth="119.0" text="Status" />
+                                                <TableColumn fx:id="t1ClientIdTableColumn" prefWidth="182.0" text="Client ID" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="orderingsTab" onSelectionChanged="#onClickRefreshButton" text="My Orders">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="201.0" prefWidth="800.0">
+                                       <children>
+                                          <TableView fx:id="ordersTable2View" prefHeight="414.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <columns>
+                                                <TableColumn fx:id="t2IdTableColumn" prefWidth="50.0" text="ID" />
+                                                <TableColumn fx:id="t2DelTimeTableColumn" prefWidth="107.0" text="Delivery Time" />
+                                                <TableColumn fx:id="t2FoodNameTableColumn" prefWidth="95.0" text="Food" />
+                                                <TableColumn fx:id="t2CostTableColumn" prefWidth="69.0" text="Cost" />
+                                                <TableColumn fx:id="t2AddressTableColumn" prefWidth="130.0" text="Address" />
+                                                <TableColumn fx:id="t2StatusTableColumn" prefWidth="98.0" text="Status" />
+                                                <TableColumn fx:id="t2WorkerIdTableColumn" prefWidth="120.0" text="Worker ID" />
+                                                <TableColumn fx:id="t2ClientIdTableColumn" prefWidth="130.0" text="Client ID" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="exchangesTab1" onSelectionChanged="#onClickRefreshButton" text="Add Order">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="201.0" prefWidth="800.0">
+                                       <children>
+                                          <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                             <children>
+                                                <TableView fx:id="foodTable3View" prefHeight="376.0" prefWidth="482.0">
+                                                   <columns>
+                                                      <TableColumn fx:id="t3IdTableColumn" prefWidth="110.0" text="ID" />
+                                                      <TableColumn fx:id="t3FoodNameTableColumn" prefWidth="142.0" text="Food Name" />
+                                                      <TableColumn fx:id="t3PriceTableColumn" prefWidth="155.0" text="Food Price" />
+                                                   </columns>
+                                                </TableView>
+                                                <Separator orientation="VERTICAL" prefHeight="200.0" />
+                                                <AnchorPane prefHeight="376.0" prefWidth="395.0">
+                                                   <children>
+                                                      <VBox prefHeight="405.0" prefWidth="396.0">
+                                                         <children>
+                                                            <TableView fx:id="addedFoodTable4View" prefHeight="188.0" prefWidth="396.0">
+                                                               <columns>
+                                                                  <TableColumn fx:id="t4IdTableColumn" prefWidth="110.0" text="ID" />
+                                                                  <TableColumn fx:id="t4FoodNameTableColumn" prefWidth="142.0" text="Added Food Name" />
+                                                                  <TableColumn fx:id="t4PriceTableColumn" prefWidth="142.0" text="Added Food Price" />
+                                                               </columns>
+                                                            </TableView>
+                                                            <HBox prefHeight="5.0" prefWidth="396.0">
+                                                               <children>
+                                                                  <Label text="Delivery Time:" />
+                                                                  <TextField fx:id="delTimeTextField" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="321.0" />
+                                                               </children>
+                                                            </HBox>
+                                                            <HBox layoutX="10.0" layoutY="198.0" prefHeight="5.0" prefWidth="396.0">
+                                                               <children>
+                                                                  <Label prefHeight="17.0" prefWidth="97.0" text="Address:" />
+                                                                  <TextField fx:id="addressTextField" alignment="CENTER" prefHeight="25.0" prefWidth="341.0" />
+                                                               </children>
+                                                            </HBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </AnchorPane>
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                              </Tab>
+                              <Tab fx:id="exchangesTab11" onSelectionChanged="#onClickRefreshButton" text="Add Reservation">
+                                 <content>
+                                    <HBox alignment="CENTER">
+                                       <children>
+                                          <ImageView fitHeight="279.0" fitWidth="381.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../tables.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Separator orientation="VERTICAL" prefHeight="200.0" prefWidth="20.0" />
+                                          <VBox alignment="CENTER" prefHeight="405.0" prefWidth="396.0">
+                                             <children>
+                                                <HBox prefHeight="5.0" prefWidth="396.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="113.0" text="Reservation Time:" />
+                                                      <TextField fx:id="resTimeTextField" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="282.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="198.0" prefHeight="5.0" prefWidth="396.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="136.0" text="Persons:" />
+                                                      <TextField fx:id="personsTextField" alignment="CENTER" prefHeight="25.0" prefWidth="304.0" />
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="198.0" prefHeight="5.0" prefWidth="396.0">
+                                                   <children>
+                                                      <Label prefHeight="17.0" prefWidth="174.0" text="Table Location:" />
+                                                      <TextField fx:id="tableLocationTextField" alignment="CENTER" prefHeight="25.0" prefWidth="341.0" />
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </content>
+                              </Tab>
+                          </tabs>
+                        </TabPane>
+                        <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#onClickRefreshButton" text="Refresh" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="10.0" prefHeight="56.0" prefWidth="800.0">
+               <children>
+                  <ToolBar nodeOrientation="LEFT_TO_RIGHT" prefHeight="57.0" prefWidth="800.0">
+                     <items>
+                        <Separator layoutX="561.0" layoutY="10.0" orientation="VERTICAL" prefHeight="25.0" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Button fx:id="addOrderButton" mnemonicParsing="false" onMouseClicked="#onClickAddOrderButton" prefWidth="150.0" text="Add Order" />
+                           </children>
+                        </VBox>
+                        <Separator layoutX="73.0" layoutY="10.0" orientation="VERTICAL" prefHeight="25.0" />
+                        <VBox alignment="CENTER">
+                           <children>
+                              <Button fx:id="addReservationButton" mnemonicParsing="false" onMouseClicked="#onClickAddReservationButton" prefWidth="150.0" text="Add Reservation" />
+                           </children>
+                        </VBox>
+                        <Separator layoutX="229.0" layoutY="10.0" orientation="VERTICAL" prefHeight="25.0" />
+                        <VBox alignment="CENTER" layoutX="20.0" layoutY="10.0">
+                           <children>
+                              <Button fx:id="addFoodToTheOrderButton" mnemonicParsing="false" onMouseClicked="#onClickAddFoodToTheOrderButton" prefWidth="150.0" text="Add Food To The Order" />
+                           </children>
+                        </VBox>
+                        <Label prefHeight="17.0" prefWidth="67.0" text="Message:" />
+                        <TextField fx:id="errorTextField" />
+                     </items>
+                  </ToolBar>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
