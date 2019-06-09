@@ -18,7 +18,7 @@ public class GeoLocationService {
 
     private static final String restaurantOrigin = "Chicago";
     private static final String APPLICATION_NAME = "rservice";
-    private static final String API_KEY = "AIzaSyB71ESw0km7xM_6UkJGWzBMNBBO4FzC6XI";    // get your own key on Google API Console
+    private static final String API_KEY = "";    // get your own key on Google API Console
 
     public GeoLocationService() {
     }
