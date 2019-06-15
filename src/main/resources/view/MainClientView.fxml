@@ -183,6 +183,7 @@
                         <VBox alignment="CENTER">
                            <children>
                               <Button fx:id="addOrderButton" mnemonicParsing="false" onMouseClicked="#onClickAddOrderButton" prefWidth="150.0" text="Add Order" />
+                              <Button mnemonicParsing="false" onMouseClicked="#onClickOrderRecieved" prefHeight="25.0" prefWidth="150.0" text="Set Order Recieved" />
                            </children>
                         </VBox>
                         <Separator layoutX="73.0" layoutY="10.0" orientation="VERTICAL" prefHeight="25.0" />

@@ -7,6 +7,7 @@ import com.rservice.businesslogic.entities.orders.Order;
 import com.rservice.businesslogic.entities.orders.Reservation;
 import com.rservice.businesslogic.entities.orders.Table;
 import com.rservice.businesslogic.exceptions.RServiceAppException;
+import com.rservice.gui.facades.ServiceFacade;
 import com.rservice.storage.Repository;
 import org.apache.commons.codec.digest.DigestUtils;
 

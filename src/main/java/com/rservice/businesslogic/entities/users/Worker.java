@@ -6,6 +6,8 @@ import com.rservice.businesslogic.entities.orders.Order;
 import com.rservice.businesslogic.exceptions.RServiceAppException;
 import com.rservice.storage.Repository;
 
+import java.util.List;
+
 public class Worker extends AbstractUser {
 
     private int countOrdersTaken;
@@ -29,6 +31,10 @@ public class Worker extends AbstractUser {
         orderToDecline.setStatus(Status.DENIED);
         repository.update(orderToDecline);
         return orderToDecline;
+    }
+
+    public List<Order> getAllWorkerOrders (Repository repository) {
+        return repository.getAllWorkerOrdersById(this.getId());
     }
 
     @Override

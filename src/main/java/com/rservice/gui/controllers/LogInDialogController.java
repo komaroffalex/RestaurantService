@@ -3,6 +3,7 @@ package com.rservice.gui.controllers;
 import com.rservice.Main;
 import com.rservice.businesslogic.exceptions.LogInErrorException;
 import com.rservice.gui.facades.Facade;
+import com.rservice.gui.facades.ServiceFacade;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -11,6 +12,7 @@ import javafx.scene.control.TextField;
 public class LogInDialogController {
 
     private Facade facade = Main.FACADE;
+    private ServiceFacade serviceFacade = Main.ServiceFACADE;
 
     @FXML private TextField loginTextField;
     @FXML private PasswordField passwordTextField;
@@ -34,6 +36,7 @@ public class LogInDialogController {
         }
         try {
             int userId = facade.logInUser(login, password);
+            serviceFacade.setUserId(userId);
             Main.showMainView(userId);
         } catch (LogInErrorException e) {
             errorLabel.setText(e.getMessage());

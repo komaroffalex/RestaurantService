@@ -38,7 +38,7 @@ public class MainAdministratorViewController {
     private int currentAdministratorId;
     private String currentAdministratorLogin;
     private Object lastChosenRow = null;
-    private ServiceFacade serviceFacade = new ServiceFacade();
+    private ServiceFacade serviceFacade = Main.ServiceFACADE;
 
     @FXML private Label currentAdministratorIdLabel;
     @FXML private Label currentAdministratorLoginLabel;
@@ -330,10 +330,12 @@ public class MainAdministratorViewController {
     }
 
     @FXML
-    public void onClickDistanceButton() {
+    public void onOrderTableClick() {
         if(lastChosenRow.getClass().getSimpleName().equals("Order")) {
             String distance = serviceFacade.searchGoogleMapDistance(((Order) lastChosenRow).getAddress());
-            distanceTextField.setText(distance);
+            if(distance != null) {
+                distanceTextField.setText(distance);
+            }
         }
         else {
             errorTextField.setText("You must choose order from the order table.");

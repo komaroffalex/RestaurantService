@@ -4,7 +4,8 @@ public enum Status {
     SUBMITTED(0, "Submitted"),
     PREPARING(1, "Preparing"),
     READY(2, "Ready"),
-    DENIED(3, "Denied");
+    DENIED(3, "Denied"),
+    CLOSED(4, "Closed");
 
     private final int status;
     private final String statusName;
@@ -53,6 +54,8 @@ public enum Status {
                 return READY;
             case "Denied":
                 return DENIED;
+            case "Closed":
+                return CLOSED;
         }
         return SUBMITTED;
     }

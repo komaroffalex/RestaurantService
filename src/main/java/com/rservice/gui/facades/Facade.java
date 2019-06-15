@@ -40,7 +40,10 @@ public interface Facade {
 
     // Functions of CLient
     List<Order> getAllUserOrders(int userId);
+    List<Order> getAllClientOrders(int userId);
     List<Reservation> getAllUserReservations(int userId);
+    List<Reservation> getAllClientReservations(int userId);
+    void closeOrder(Object order) throws RServiceAppException;
     void addNewOrder(Date delTime, List<Food> food, String address) throws NotFoundException;
     void addNewReservation(Date resTime, int persons, String location) throws NotFoundException;
 

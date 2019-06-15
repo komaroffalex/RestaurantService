@@ -6,6 +6,7 @@ import com.rservice.gui.controllers.MainClientViewController;
 import com.rservice.gui.controllers.MainWorkerViewController;
 import com.rservice.gui.facades.CommonFacade;
 import com.rservice.gui.facades.Facade;
+import com.rservice.gui.facades.ServiceFacade;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -17,6 +18,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     public static final Facade FACADE = new CommonFacade();
+    public static final ServiceFacade ServiceFACADE = new ServiceFacade();
     private static Stage mainStage;
 
     public static void main(String[] args) {

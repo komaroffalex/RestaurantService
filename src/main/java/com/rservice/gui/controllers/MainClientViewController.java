@@ -177,12 +177,12 @@ public class MainClientViewController {
     private void updateMyReservationsTable() {
         myReservationsObservableList.removeAll(myReservationsObservableList);
 
-        myReservationsObservableList.addAll(facade.getAllUserReservations(currentClientId));
+        myReservationsObservableList.addAll(facade.getAllClientReservations(currentClientId));
     }
 
     private void updateMyOrdersTable() {
         myOrdersObservableList.removeAll(myOrdersObservableList);
-        myOrdersObservableList.addAll(facade.getAllUserOrders(currentClientId));
+        myOrdersObservableList.addAll(facade.getAllClientOrders(currentClientId));
     }
 
     private void clearCurrentOrderFoodTable() {
@@ -261,5 +261,17 @@ public class MainClientViewController {
         resTimeTextField.clear();
         personsTextField.clear();
         tableLocationTextField.clear();
+    }
+
+    @FXML
+    public void onClickOrderRecieved() {
+        try {
+            facade.closeOrder(lastChosenRow);
+        } catch (RServiceAppException e) {
+            errorTextField.setText(e.getMessage());
+            return;
+        }
+        errorTextField.setText("Order closed!");
+        onClickRefreshButton();
     }
 }

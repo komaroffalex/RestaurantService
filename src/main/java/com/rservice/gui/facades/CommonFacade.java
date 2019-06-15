@@ -98,9 +98,39 @@ public class CommonFacade implements Facade {
     }
 
     @Override
-    public List<Order> getAllWorkerOrdersById(int userId) {
-        List<Order> reservations = repository.getAllWorkerOrdersById(userId);
+    public List<Reservation> getAllClientReservations(int userId) {
+        List<Reservation> reservations = null;
+        try {
+            reservations = ((Client) getUser(loggedInUserId)).getAllClientReservation(repository);
+        }
+        catch (NotFoundException e) {
+            e.printStackTrace();
+        }
         return reservations;
+    }
+
+    @Override
+    public List<Order> getAllClientOrders(int userId) {
+        List<Order> orders = null;
+        try {
+            orders = ((Client) getUser(loggedInUserId)).getAllClientOrders(repository);
+        }
+        catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        return orders;
+    }
+
+    @Override
+    public List<Order> getAllWorkerOrdersById(int userId) {
+        List<Order> orders = null;
+        try {
+            orders = ((Worker) getUser(loggedInUserId)).getAllWorkerOrders(repository);
+        }
+        catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+        return orders;
     }
 
     @Override
@@ -179,6 +209,15 @@ public class CommonFacade implements Facade {
     public void confirmOrder(Object order) throws RServiceAppException {
         try {
             ((Administrator) getUser(loggedInUserId)).confirmOrder(repository, order);
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void closeOrder(Object order) throws RServiceAppException {
+        try {
+            ((Client) getUser(loggedInUserId)).confirmRecievedOrder(repository, order);
         } catch (NotFoundException e) {
             e.printStackTrace();
         }

@@ -30,6 +30,22 @@ public class Client extends AbstractUser {
         return placedReservation;
     }
 
+    public List<Order> getAllClientOrders (Repository repository) {
+        return repository.getAllUserOrdersById(this.getId());
+    }
+
+    public List<Reservation> getAllClientReservation (Repository repository) {
+        return repository.getAllUserReservationsById(this.getId());
+    }
+
+    public Order confirmRecievedOrder(Repository repository, Object order) throws RServiceAppException {
+        if(order==null) throw new RServiceAppException("Failed to confirm Order!");
+        Order orderToConfirm = (Order) order;
+        orderToConfirm.setStatus(Status.CLOSED);
+        repository.update(orderToConfirm);
+        return orderToConfirm;
+    }
+
     @Override
     public Role getRole() {
         return Role.CLIENT;

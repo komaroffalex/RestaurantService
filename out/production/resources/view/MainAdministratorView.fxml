@@ -100,7 +100,7 @@
                                  <content>
                                     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="201.0" prefWidth="800.0">
                                        <children>
-                                          <TableView fx:id="ordersTable3View" prefHeight="414.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                          <TableView fx:id="ordersTable3View" onMouseClicked="#onOrderTableClick" prefHeight="414.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                              <columns>
                                                 <TableColumn fx:id="t3IdTableColumn" prefWidth="50.0" text="ID" />
                                                 <TableColumn fx:id="t3DeliveryTimeTableColumn" prefWidth="107.0" text="Delivery Time" />
@@ -227,7 +227,6 @@
                         <VBox>
                            <children>
                               <Button fx:id="addNewFoodButton" mnemonicParsing="false" onMouseClicked="#onClickAddNewFoodButton" prefWidth="150.0" text="Add New Food" />
-                              <Button fx:id="distanceButton" mnemonicParsing="false" onMouseClicked="#onClickDistanceButton" prefHeight="25.0" prefWidth="151.0" text="Calculate distance" />
                            </children>
                         </VBox>
                         <VBox>
